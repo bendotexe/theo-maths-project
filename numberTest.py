@@ -3,7 +3,9 @@ import time
 from sklearn.linear_model import LinearRegression
 import numpy as np
 
+
 def generateQuestion(lowerLimit, upperLimit):
+    """ A function that takes in upper and lower limits for values and randomly generates multiplication questions"""
 
     random.seed()
     a = random.randint(lowerLimit, upperLimit)
@@ -51,8 +53,8 @@ def runGame(lL,uL):
         print(f"Correct! Answered in {responseTimePrint} seconds")
         correct = 1
     else:
-        print(f"Incorrect. Answered in {responseTimePrint} seconds")
-        correct = 0.1
+        print(f"Incorrect. Answered in {responseTimePrint} seconds, the correct answer was {c}")
+        correct = 1/((c-userAnswer)^4)
 
     score = correct*100/responseTime
 
