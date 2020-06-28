@@ -54,7 +54,7 @@ def runGame(lL,uL):
         correct = 1
     else:
         print(f"Incorrect. Answered in {responseTimePrint} seconds, the correct answer was {c}")
-        correct = 1/((c-userAnswer)^4)
+        correct = 1/((c-int(userAnswer))^4)
 
     score = correct*100/responseTime
 
