@@ -48,10 +48,10 @@ def runGame(lL,uL):
     responseTimePrint = round(responseTime, 2)
 
     if userAnswer == str(c):
-        print(f"correct: answered in {responseTimePrint} seconds")
+        print(f"Correct! Answered in {responseTimePrint} seconds")
         correct = 1
     else:
-        print(f"wrong: answered in {responseTimePrint} seconds")
+        print(f"Incorrect. Answered in {responseTimePrint} seconds")
         correct = 0.1
 
     score = correct*100/responseTime
@@ -72,12 +72,10 @@ while True:
         values, score = runGame(lL,uL)
         questionValues.append(values)
         questionResults.append(score)
-        print(model)
-        print(values)
         predScore = np.dot(model, values)
 
-        print(score)
-        print(predScore)
+        print('Question score: ' + str(score))
+        print('Predicted score: ' + str(predScore))
 
     reg = LinearRegression().fit(questionValues, questionResults)
     model = reg.coef_
